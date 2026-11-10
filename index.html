@@ -3,18 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Raees Ghoor builds business tools with AI coding agents.">
+<title>Raees Ghoor · Operations automation for SA sellers and manufacturers</title>
+<meta name="description" content="I automate the repetitive parts of South African e-commerce and manufacturing businesses in 2 weeks, at a fixed price. Start with a free 15-minute ops audit.">
+<meta property="og:title" content="Stop running your operation by hand · Raees Ghoor">
+<meta property="og:description" content="Fixed-price, 2-week automation pilots for Amazon.co.za and Takealot sellers, online stores and small manufacturers. Start with a free 15-minute ops audit.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://raeesghoor.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%23122a31%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-family=%22Arial%22 font-weight=%22900%22 font-size=%2215%22 fill=%22%23f07a3f%22 text-anchor=%22middle%22%3ERG%3C/text%3E%3C/svg%3E">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Raees Ghoor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
-/* Layout: a workbench. One live terminal replay up top (the wow), then a quiet index of builds, how I build, and what I'm tinkering with. */
+/* Layout: outcome-first hero with the audit CTA, a live replay as proof, then services, how a pilot works, one case study, a short list of other builds, why me, and the CTA again. */
 :root{
   --paper:#eef1ef; --sheet:#f8faf9; --ink:#122a31; --muted:#56696f; --rule:#cfd8d6;
   --signal:#d4581f; --teal:#1f4e5f;
+  --cta:#b5481a; --cta-fg:#ffffff; --cta-hover:#963b14;
   --term:#0f1d21; --term-fg:#d9e4e1; --term-dim:#7d9399; --term-ok:#6fd3a0; --term-hi:#f39a62;
   --display:"Archivo","Arial Narrow",Arial,sans-serif;
   --body:"Instrument Sans","Segoe UI",system-ui,sans-serif;
@@ -22,30 +27,46 @@
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#0b1517; --sheet:#111f23; --ink:#e3ebe9; --muted:#97abb0; --rule:#22363b; --signal:#f07a3f; --teal:#7fb6c6;
+  --cta:#f07a3f; --cta-fg:#0b1517; --cta-hover:#f59a6a;
   --term:#060d0f; color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#0b1517; --sheet:#111f23; --ink:#e3ebe9; --muted:#97abb0; --rule:#22363b; --signal:#f07a3f; --teal:#7fb6c6;
+  --cta:#f07a3f; --cta-fg:#0b1517; --cta-hover:#f59a6a;
   --term:#060d0f; color-scheme:dark}
 
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.wrap{max-width:980px;margin:0 auto;padding-block:40px 32px}
+.wrap{max-width:980px;margin:0 auto;padding-block:28px 32px}
 a{color:inherit}
 a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 
-header{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
-header h1{font-size:clamp(36px,6vw,64px);font-weight:850;font-variation-settings:"wdth" 115;line-height:.95;letter-spacing:-.01em}
-header h1 span{color:var(--signal)}
-header p{margin:12px 0 0;color:var(--muted);max-width:46ch;font-size:17px}
+/* top bar */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 .links{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:13px}
 .links a{text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px}
 .links a:hover{border-color:var(--signal)}
 
+/* hero */
+.hero{margin-top:48px}
+.hero h1{font-size:clamp(38px,7vw,72px);font-weight:850;font-variation-settings:"wdth" 112;line-height:.95;letter-spacing:-.01em;max-width:14ch}
+.hero h1 span{color:var(--signal)}
+.hero .lede{margin:18px 0 0;color:var(--muted);max-width:54ch;font-size:18px}
+.cta{display:flex;align-items:center;gap:14px 20px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--cta);color:var(--cta-fg);text-decoration:none;font-weight:600;
+  font-size:16px;padding:13px 20px;border-radius:6px;min-height:48px}
+.btn:hover{background:var(--cta-hover)}
+.btn svg{width:18px;height:18px;flex:none}
+.alt{font-family:var(--mono);font-size:13px;text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px}
+.alt:hover{border-color:var(--signal)}
+.note{margin:12px 0 0;font-size:14px;color:var(--muted);max-width:60ch}
+
 /* terminal */
-.term{margin-top:40px;background:var(--term);color:var(--term-fg);border-radius:10px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(10,25,30,.55)}
+.term{margin-top:48px;background:var(--term);color:var(--term-fg);border-radius:10px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(10,25,30,.55)}
 .term .bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid #1f3237}
 .term .dot{width:11px;height:11px;border-radius:50%;background:#2b3f44}
 .term .dot:nth-child(1){background:#e0614a}.term .dot:nth-child(2){background:#e7b54a}.term .dot:nth-child(3){background:#58c27d}
@@ -58,46 +79,108 @@ header p{margin:12px 0 0;color:var(--muted);max-width:46ch;font-size:17px}
 @keyframes blink{50%{opacity:0}}
 .caption{margin:10px 2px 0;font-size:13px;color:var(--muted)}
 
-/* builds */
-section{margin-top:72px}
+/* sections */
+section{margin-top:80px;scroll-margin-top:16px}
 .sh{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:10px;flex-wrap:wrap}
 .sh h2{font-size:clamp(24px,3vw,32px);font-weight:800;font-variation-settings:"wdth" 110}
+
+/* services */
+.services{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.services li{padding:22px 22px 22px 0;border-bottom:1px solid var(--rule)}
+.services li:not(:nth-child(3n+1)){padding-left:22px;border-left:1px solid var(--rule)}
+.services h3{font-size:19px;font-weight:700;font-variation-settings:"wdth" 103}
+.services p{margin:6px 0 0;color:var(--muted);font-size:15px}
+.services .res{margin-top:10px;font-family:var(--mono);font-size:12.5px;line-height:1.5;color:var(--teal)}
+.services .res::before{content:"→ ";color:var(--signal)}
+.services .for{display:block;margin-bottom:6px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* pilot steps */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:18px}
+.steps div{padding:4px 18px 4px 0}
+.steps div+div{padding-left:18px;border-left:1px solid var(--rule)}
+.steps b{display:block;font-family:var(--display);font-size:18px;font-weight:750;margin-bottom:4px}
+.steps span{font-size:14px;color:var(--muted);display:block}
+.steps i{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--signal)}
+.steps .price{margin-top:8px;font-family:var(--mono);font-size:13px;color:var(--ink)}
+.terms{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chip{font-family:var(--mono);font-size:12.5px;border:1px solid var(--rule);background:var(--sheet);padding:5px 10px;border-radius:3px}
+.chip b{color:var(--signal);font-weight:600}
+
+/* case study */
+.case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;margin-top:24px}
+.case h3{font-size:14px;font-family:var(--mono);font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.case p{margin:0 0 20px;max-width:58ch}
+.case ul{margin:0 0 20px;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.case li{display:flex;gap:10px}
+.case li::before{content:"→";color:var(--signal);font-family:var(--mono)}
+.shot{margin:0;border:1px dashed var(--rule);background:var(--sheet);border-radius:8px;aspect-ratio:16/10;display:grid;place-items:center;
+  text-align:center;padding:16px;color:var(--muted);font-family:var(--mono);font-size:13px}
+.shot img{width:100%;height:100%;object-fit:cover;border-radius:6px}
+.shot figcaption{margin-top:8px}
+.case:has(.shot[hidden]){grid-template-columns:1fr}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:32px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.stats div{padding:18px 16px 18px 0}
+.stats div+div{padding-left:16px;border-left:1px solid var(--rule)}
+.stats b{display:block;font-family:var(--display);font-size:clamp(24px,3.4vw,34px);font-weight:850;font-variation-settings:"wdth" 108;line-height:1.05;color:var(--signal)}
+.stats span{font-size:14px;color:var(--muted)}
+
+/* builds */
 .builds{list-style:none;margin:0;padding:0}
 .builds li{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--rule)}
 .builds .yr{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
 .builds h3{font-size:19px;font-weight:700;font-variation-settings:"wdth" 103}
 .builds p{margin:2px 0 0;color:var(--muted);max-width:62ch}
 .builds .stack{font-family:var(--mono);font-size:12px;color:var(--teal);text-align:right;max-width:200px}
-.builds li:hover h3{color:var(--signal)}
+.earlier{margin:14px 0 0;font-size:14px;color:var(--muted)}
+.earlier b{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-right:6px}
 
-/* process */
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:18px}
-.steps div{padding:4px 18px 4px 0}
-.steps div+div{padding-left:18px;border-left:1px solid var(--rule)}
-.steps b{display:block;font-family:var(--display);font-size:18px;font-weight:750;margin-bottom:4px}
-.steps span{font-size:14px;color:var(--muted)}
-.steps i{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--signal)}
+/* why me */
+.why{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;margin-top:20px}
+.why p{margin:0;font-size:18px;max-width:50ch}
+.why ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.why li{display:flex;gap:10px;color:var(--muted)}
+.why li::before{content:"→";color:var(--signal);font-family:var(--mono)}
 
-/* tinkering + toolbox */
-.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;margin-top:72px}
-.two h2{font-size:22px;font-weight:800;font-variation-settings:"wdth" 108;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:12px}
-.two ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.two li{display:flex;gap:10px}
-.two li::before{content:"→";color:var(--signal);font-family:var(--mono)}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-family:var(--mono);font-size:12px;border:1px solid var(--rule);background:var(--sheet);padding:4px 9px;border-radius:3px}
-.chip.new{border-color:var(--signal)}
+/* testimonials */
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px;margin-top:20px}
+.quotes blockquote{margin:0;padding:0 0 0 16px;border-left:3px solid var(--signal)}
+.quotes p{margin:0;font-size:17px}
+.quotes footer{margin:8px 0 0;padding:0;border:0;font-size:14px;color:var(--muted);display:block}
 
-footer{margin-top:72px;padding-top:18px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
-footer button{font:inherit;font-family:var(--mono);background:none;border:1px solid var(--rule);color:var(--ink);border-radius:3px;padding:2px 8px;cursor:pointer}
+/* closing cta */
+.close{margin-top:88px;background:var(--sheet);border:1px solid var(--rule);border-radius:10px;padding:clamp(24px,5vw,44px)}
+.close h2{font-size:clamp(28px,4.4vw,44px);font-weight:850;font-variation-settings:"wdth" 112;line-height:1}
+.close h2 span{color:var(--signal)}
+.close p{margin:12px 0 0;color:var(--muted);max-width:56ch}
 
+footer.site{margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+footer.site button{font:inherit;font-family:var(--mono);background:none;border:1px solid var(--rule);color:var(--ink);border-radius:3px;padding:2px 8px;cursor:pointer}
+
+@media (max-width:860px){
+  .services{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .services li:not(:nth-child(3n+1)){padding-left:0;border-left:0}
+  .services li:nth-child(2n){padding-left:20px;border-left:1px solid var(--rule)}
+}
 @media (max-width:760px){
+  .hero{margin-top:36px}
+  .hero .lede{font-size:17px}
+  .btn{width:100%;justify-content:center}
   .builds li{grid-template-columns:52px minmax(0,1fr);gap:12px}
   .builds .stack{grid-column:2;text-align:left;max-width:none}
-  .steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 0}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 0}
   .steps div:nth-child(3){padding-left:0;border-left:0}
-  .two{grid-template-columns:1fr}
+  .case,.why{grid-template-columns:1fr;gap:24px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats div:nth-child(3){padding-left:0;border-left:0;border-top:1px solid var(--rule)}
+  .stats div:nth-child(4){border-top:1px solid var(--rule)}
   .screen{font-size:12.5px;min-height:400px}
+  .top .links .hide-sm{display:none}
+}
+@media (max-width:560px){
+  .services{grid-template-columns:1fr}
+  .services li:nth-child(2n){padding-left:0;border-left:0}
+  .steps{grid-template-columns:1fr}
+  .steps div+div{padding-left:0;border-left:0;border-top:1px solid var(--rule);padding-top:14px}
 }
 @media (prefers-reduced-motion:reduce){.cursor{animation:none}}
 </style>
@@ -105,76 +188,150 @@ footer button{font:inherit;font-family:var(--mono);background:none;border:1px so
 <body>
 
 <div class="wrap">
-<header>
-  <div>
-    <div class="eyebrow">Muhammad Raees Ghoor</div>
-    <h1 style="margin-top:10px">Things I build<span>.</span></h1>
-    <p>I build my own business tools with AI coding agents. Here's what they look like in use.</p>
-  </div>
-  <nav class="links" aria-label="Profiles">
-    <a href="https://github.com/m-raaes" target="_blank" rel="noopener">GitHub ↗</a>
-    <a href="https://www.linkedin.com/in/raeesghoor" target="_blank" rel="noopener">LinkedIn ↗</a>
+<div class="top">
+  <span class="eyebrow">Raees Ghoor</span>
+  <nav class="links" aria-label="Page">
+    <a href="#services" class="hide-sm">Services</a>
+    <a href="#pilot" class="hide-sm">How it works</a>
+    <a href="#case" class="hide-sm">Case study</a>
+    <a href="#audit">Free audit</a>
   </nav>
+</div>
+
+<header class="hero">
+  <h1>Stop running your operation by hand<span>.</span></h1>
+  <p class="lede">I automate the repetitive work for South African online sellers and manufacturers: listings, reviews, reorders and profit tracking. Fixed price, live in 2 weeks, and you own what I build.</p>
+  <div class="cta">
+    <!-- REPLACE [NUMBER] with your WhatsApp number in international format, digits only (e.g. 27821234567). -->
+    <a class="btn" href="https://wa.me/[NUMBER]?text=Hi%20Raees%2C%20I%27d%20like%20a%20free%20ops%20audit." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3Z"/></svg>
+      Get a free ops audit
+    </a>
+    <a class="alt" href="mailto:raeesghoor@gmail.com?subject=Free%20ops%20audit">or email me</a>
+  </div>
+  <p class="note">15 minutes. I look at your listings or workflow and send you a short video showing 3 things I'd automate and what each would save you.</p>
 </header>
 
-<div class="term" role="region" aria-label="Replay of a Claude Code session">
-  <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="title">~/carehub-ops — claude</span><button type="button" id="replay">↻ Replay</button></div>
+<div class="term" role="region" aria-label="Replay of an automation run">
+  <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="title">~/carehub-ops — weekly buy-list</span><button type="button" id="replay">↻ Replay</button></div>
   <div class="screen" id="screen"></div>
 </div>
-<p class="caption">A replay of a typical Sunday run of my sourcing agent. The products and figures are illustrative.</p>
+<p class="caption">What an automation looks like: my own weekly buying run, which used to take an afternoon by hand. Products and figures here are illustrative.</p>
+
+<section id="services" aria-labelledby="s-h">
+  <div class="sh"><h2 id="s-h">What I can automate for you</h2><span class="eyebrow">one per pilot</span></div>
+  <ul class="services">
+    <li><span class="for">Sellers</span><h3>Review requests</h3><p>Every buyer is asked for a review at the right moment, without anyone having to remember.</p><div class="res">More reviews, better ranking, no extra admin.</div></li>
+    <li><span class="for">Sellers · manufacturers</span><h3>Reorder alerts</h3><p>A daily list of what to reorder and how much, based on how fast each item really sells and your supplier's lead time.</p><div class="res">Fewer stock-outs, less cash stuck in slow stock.</div></li>
+    <li><span class="for">Sellers</span><h3>True-profit dashboard</h3><p>What each product actually makes after marketplace fees, freight, ad spend and the VAT you can't claim back.</p><div class="res">Stop selling the items that quietly lose money.</div></li>
+    <li><span class="for">Sellers</span><h3>Listing automation</h3><p>Create and update listings on Amazon.co.za, Takealot or your own store from one product sheet.</p><div class="res">Hours of copy-paste gone, fewer listing errors.</div></li>
+    <li><span class="for">Sellers · distributors</span><h3>Supplier buy-lists</h3><p>Turns supplier price lists and promo leaflets into a ranked list of what's worth buying, with real margins.</p><div class="res">Better buying decisions in minutes, not an afternoon.</div></li>
+    <li><span class="for">Manufacturers</span><h3>Quotes and paperwork</h3><p>Quotes, spec sheets and order documents generated from your own product data instead of retyped each time.</p><div class="res">Faster quotes, consistent documents, fewer mistakes.</div></li>
+  </ul>
+  <p class="note">Something else eating your week? That's what the free audit is for.</p>
+</section>
+
+<section id="pilot" aria-labelledby="p-h">
+  <div class="sh"><h2 id="p-h">How a pilot works</h2><span class="eyebrow">2 weeks · fixed price</span></div>
+  <div class="steps">
+    <div><i>01</i><b>Free ops audit</b><span>15 minutes on a call or from your listings. You get a short video with 3 things I'd automate and what each would save.</span></div>
+    <div><i>02</i><b>Fixed-price pilot</b><span>We pick one clear deliverable and agree the price before I start. I build it in 2 weeks and keep you updated.</span><span class="price" data-fill>from R[PRICE]</span></div>
+    <div><i>03</i><b>Results</b><span>It goes live in your business. You see the time or money it saves, and you own everything I built.</span></div>
+    <div><i>04</i><b>Optional retainer</b><span>A monthly fee for me to run it, keep it working and improve it. Only if it's worth it to you.</span></div>
+  </div>
+  <div class="terms">
+    <span class="chip"><b>50%</b> upfront, the rest on delivery</span>
+    <span class="chip"><b>2 weeks</b> from start to live</span>
+    <span class="chip"><b>You own</b> the code and the data</span>
+  </div>
+</section>
+
+<section id="case" aria-labelledby="c-h">
+  <div class="sh"><h2 id="c-h">Case study: Carehub Ops</h2><span class="eyebrow">Amazon.co.za seller</span></div>
+  <div class="case">
+    <div>
+      <h3>The problem</h3>
+      <p>Carehub is my own Amazon.co.za store. Every week went to the same manual jobs: creating listings, chasing brand approvals, asking buyers for reviews, checking which ads paid back, and spotting lost stock to claim from Amazon.</p>
+      <h3>What I built</h3>
+      <ul>
+        <li>A listing agent that creates listings and follows up brand approvals</li>
+        <li>Automatic review requests for every order</li>
+        <li>An ad report that shows where ad money pays back and where it doesn't</li>
+        <li>A stock check that flags lost or damaged inventory for claims</li>
+      </ul>
+      <p>All four share one database, so the numbers always agree.</p>
+    </div>
+    <!-- REPLACE this placeholder with a screenshot: <figure class="shot"><img src="carehub-ops.png" alt="Carehub Ops dashboard showing ..." width="1600" height="1000" loading="lazy"></figure> -->
+    <figure class="shot" data-fill><div>[Screenshot: Carehub Ops dashboard]<figcaption>16:10 image, about 1600×1000</figcaption></div></figure>
+  </div>
+  <!-- RESULTS: replace each [X]. The whole block stays hidden on the live site until no "[" is left in it. -->
+  <div class="stats" aria-label="Results" data-fill>
+    <div><b>[X]</b><span>listings created</span></div>
+    <div><b>[X] hrs</b><span>saved per week</span></div>
+    <div><b>[X]</b><span>brand approvals won</span></div>
+    <div><b>[X]</b><span>review requests sent</span></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS: remove the "hidden" attribute below once you have at least one real quote. Duplicate the <blockquote> for more. -->
+<section id="testimonials" aria-labelledby="t-h" hidden>
+  <div class="sh"><h2 id="t-h">What clients say</h2></div>
+  <div class="quotes">
+    <blockquote>
+      <p>"[Client quote]"</p>
+      <footer>[Name], [Role], [Business]</footer>
+    </blockquote>
+  </div>
+</section>
 
 <section aria-labelledby="b-h">
-  <div class="sh"><h2 id="b-h">Builds</h2><span class="eyebrow">2020 → now</span></div>
+  <div class="sh"><h2 id="b-h">Other tools I run</h2><span class="eyebrow">built for my own businesses</span></div>
   <ul class="builds">
-    <li><span class="yr">2026</span><div><h3>Carehub Ops</h3><p>Four agents share one database. They create listings and chase brand approvals, ask every buyer for a review, find where ad money pays back, and flag lost stock for claims.</p></div><span class="stack">Claude Code · Codex · Supabase</span></li>
-    <li><span class="yr">2026</span><div><h3>Promo Buy-List</h3><p>Reads a wholesaler's weekly promo leaflet, matches each item to Amazon, costs it all the way to the shelf and ranks what's worth buying. Runs every Sunday.</p></div><span class="stack">LLM extraction · scheduling</span></li>
-    <li><span class="yr">2026</span><div><h3>Box Planner</h3><p>Works out how to ship stock to Amazon in the supplier's own cartons: case counts, weights and labels, with no repacking.</p></div><span class="stack">JavaScript · Supabase</span></li>
-    <li><span class="yr">2026</span><div><h3>Landed Cost Engine</h3><p>Turns a buy price into true cost per unit, counting freight, marketplace fees and the VAT you can't claim back.</p></div><span class="stack">Costing model · web</span></li>
-    <li><span class="yr">2026</span><div><h3>Kids' Ebook Pipeline</h3><p>Generates illustrated children's books for Amazon Kindle with open-source image models.</p></div><span class="stack">Image generation · AI writing</span></li>
-    <li><span class="yr">2026</span><div><h3>Mould Spec Sheets</h3><p>Customer-ready specification sheets for injection and blow-moulded bottles and jars.</p></div><span class="stack">Technical docs</span></li>
-    <li><span class="yr">2022</span><div><h3>Portfolio site v1</h3><p>My first portfolio site, hand-coded.</p></div><span class="stack">HTML · CSS · JS</span></li>
-    <li><span class="yr">2021</span><div><h3>Auto Marker &amp; Attendance Tracker</h3><p>Lecturing tools that marked multiple-choice scripts and tracked class attendance automatically.</p></div><span class="stack">VBScript</span></li>
-    <li><span class="yr">2020</span><div><h3>Restaurant POS</h3><p>Point-of-sale system with accounts, staff security and sales reports, built by a team of four.</p></div><span class="stack">C# · .NET · SQL Server</span></li>
+    <li><span class="yr">2026</span><div><h3>Promo Buy-List</h3><p>Reads a wholesaler's weekly promo leaflet, matches each item to Amazon, costs it all the way to the shelf and ranks what's worth buying. Runs every Sunday.</p></div><span class="stack">Buying</span></li>
+    <li><span class="yr">2026</span><div><h3>Box Planner</h3><p>Works out how to ship stock to Amazon in the supplier's own cartons: case counts, weights and labels, with no repacking.</p></div><span class="stack">Shipping</span></li>
+    <li><span class="yr">2026</span><div><h3>Landed Cost Engine</h3><p>Turns a buy price into true cost per unit, counting freight, marketplace fees and the VAT you can't claim back.</p></div><span class="stack">Pricing</span></li>
   </ul>
+  <p class="earlier"><b>Earlier work</b> Restaurant POS system (C#/.NET), automated marking and attendance tools for lecturers, mould specification sheets, and a children's ebook pipeline.</p>
 </section>
 
-<section aria-labelledby="p-h">
-  <div class="sh"><h2 id="p-h">How I build</h2><span class="eyebrow">idea to tool, usually in days</span></div>
-  <div class="steps">
-    <div><i>01</i><b>Feel the pain</b><span>Every tool starts with a job I was doing by hand every week.</span></div>
-    <div><i>02</i><b>Write the spec</b><span>Plain English: inputs, rules, what "done" looks like.</span></div>
-    <div><i>03</i><b>Pair with agents</b><span>Claude Code writes, I review, test and steer.</span></div>
-    <div><i>04</i><b>Run it on real stock</b><span>It earns its place by saving time or money.</span></div>
-  </div>
-</section>
-
-<div class="two">
-  <div>
-    <h2>On the bench</h2>
+<section aria-labelledby="w-h">
+  <div class="sh"><h2 id="w-h">Why me</h2></div>
+  <div class="why">
+    <p>I run my own Amazon store and a manufacturing business, so I understand operations, not just code. I start with what's costing you time and money, then automate the part worth automating first.</p>
     <ul>
-      <li>Merging Box Planner into the agent database</li>
-      <li>An online store for Carehub, built from the stock list</li>
-      <li>A weekly buy-list email and dashboard</li>
-      <li>A sales and ad-spend data agent</li>
+      <li>I know marketplace fees, inbound shipping, brand approvals and stock claims from doing them myself.</li>
+      <li>Every tool on this page runs in my own businesses every week.</li>
+      <li>You deal with me directly, from the audit to handover.</li>
     </ul>
   </div>
-  <div>
-    <h2>Toolbox</h2>
-    <div class="chips">
-      <span class="chip new">Claude Code</span><span class="chip new">Codex</span><span class="chip new">MCP connectors</span><span class="chip new">AI agents</span><span class="chip new">Prompt &amp; context engineering</span>
-      <span class="chip">Supabase</span><span class="chip">PostgreSQL</span><span class="chip">JavaScript</span><span class="chip">Python</span><span class="chip">C# / .NET</span><span class="chip">Git</span><span class="chip">Power BI</span>
-    </div>
+</section>
+
+<div class="close" id="audit">
+  <h2>Find out what you could automate<span>.</span></h2>
+  <p>A free 15-minute ops audit. You get a short video with 3 things I'd automate and what each would save you. No obligation.</p>
+  <div class="cta">
+    <a class="btn" href="https://wa.me/[NUMBER]?text=Hi%20Raees%2C%20I%27d%20like%20a%20free%20ops%20audit." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3Z"/></svg>
+      Get a free ops audit
+    </a>
+    <a class="alt" href="mailto:raeesghoor@gmail.com?subject=Free%20ops%20audit">or email me</a>
   </div>
 </div>
 
-<footer>
+<footer class="site">
   <span>© 2026 Raees Ghoor</span>
+  <span><a href="https://github.com/m-raaes" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/raeesghoor" target="_blank" rel="noopener">LinkedIn</a></span>
   <span><span id="email">raeesghoor@gmail.com</span> <button type="button" id="copy">Copy</button></span>
 </footer>
 </div>
 
 <script>
 (function(){
+  /* Placeholders stay out of sight on the live site until filled in:
+     anything marked data-fill is hidden while it still contains "[",
+     and WhatsApp buttons fall back to email until [NUMBER] is replaced. */
+  [].forEach.call(document.querySelectorAll('[data-fill]'),function(el){if(el.textContent.indexOf('[')>-1)el.hidden=true});
+  [].forEach.call(document.querySelectorAll('a[href*="wa.me/[NUMBER]"]'),function(a){a.href='mailto:raeesghoor@gmail.com?subject=Free%20ops%20audit';a.removeAttribute('target')});
   var L=[
     ['p','$ ','claude'],
     ['u','> ','Sunday buy-list: read this week\'s promo leaflet and rank what to buy for Amazon'],
@@ -213,7 +370,7 @@ footer button{font:inherit;font-family:var(--mono);background:none;border:1px so
       var l=L[i];
       if(l[0]==='u'&&c<l[2].length){c+=2;sc.innerHTML=out.concat('<span class="hi">&gt; </span>'+esc(l[2].slice(0,c))+'<span class="cursor"></span>').join('\n');timer=setTimeout(step,18);return}
       if(l[0]==='s'){sc.innerHTML=out.concat(line(l,false)).join('\n');out.push(line(l,true));i++;c=0;timer=setTimeout(step,520);return}
-      out.push(line(l,true));i++;c=0;sc.innerHTML=out.join('\n')+(i<L.length?'':'');timer=setTimeout(step,l[0]==='r'?120:220);
+      out.push(line(l,true));i++;c=0;sc.innerHTML=out.join('\n');timer=setTimeout(step,l[0]==='r'?120:220);
     }
     step();
   }
